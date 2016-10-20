@@ -1,0 +1,24 @@
+{
+  "name": "svgo",
+  "version": "1.0.0",
+  "description": "Simply run the Task with `gulp` to create smaller svg's and delete the Fill color in order to style it with html.",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp-svgmin": "^1.2.2",
+    "gulp-strip-code": "^0.1.4",
+    "gulp-tinypng-compress": "^1.2.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artsheeps/web-assets.git"
+  },
+  "author": "artsheeps",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artsheeps/web-assets/issues"
+  },
+  "homepage": "https://github.com/artsheeps/web-assets#readme"
+}
