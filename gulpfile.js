@@ -22,9 +22,9 @@ gulp.task('svgo', function () {
                 }
             }]
         }))
-        //.pipe(stripCode({
-        //      pattern: /fill="......."/g,
-        //}))
+//        .pipe(stripCode({
+//              pattern: /fill="......."/g,
+//        }))
         .pipe(gulp.dest('./out'));
 });
 
@@ -38,5 +38,5 @@ gulp.task('tinypng', function () {
         .pipe(gulp.dest('./out/images/'));
 });
 
-gulp.task('default', ['svgo', 'tinypng']);
-//gulp.task('default', ['svgo']);
+//gulp.task('default', ['svgo', 'tinypng']);
+gulp.task('default', ['svgo']);
