@@ -5,6 +5,7 @@
 Presuming you have Node installed.
 
 ```
+npm install --global gulp-cli
 npm install
 ```
 
