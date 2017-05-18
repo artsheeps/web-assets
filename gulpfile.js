@@ -4,6 +4,30 @@ var stripCode = require('gulp-strip-code');
 var tinypng = require('gulp-tinypng-compress') //image compression
 
 
+gulp.task('icons', function () {
+    return gulp.src('*.svg')
+        .pipe(svgmin({
+            js2svg: {
+                pretty: true
+            },
+            plugins: [{
+                removeDoctype: true
+            }, {
+                removeComments: true
+            }, {
+                removeUselessStrokeAndFill: true
+            }, {
+                cleanupNumericValues: {
+                    floatPrecision: 2
+                }
+            }]
+        }))
+        .pipe(stripCode({
+              pattern: /fill="......."/g,
+        }))
+        .pipe(gulp.dest('./out'));
+});
+
 gulp.task('svgo', function () {
     return gulp.src('*.svg')
         .pipe(svgmin({
@@ -22,10 +46,7 @@ gulp.task('svgo', function () {
                 }
             }]
         }))
-//        .pipe(stripCode({
-//              pattern: /fill="......."/g,
-//        }))
-        .pipe(gulp.dest('./out'));
+       .pipe(gulp.dest('./out'));
 });
 
 gulp.task('tinypng', function () {
@@ -38,5 +59,5 @@ gulp.task('tinypng', function () {
         .pipe(gulp.dest('./out/images/'));
 });
 
-//gulp.task('default', ['svgo', 'tinypng']);
-gulp.task('default', ['svgo']);
+gulp.task('assets', ['svgo', 'tinypng']);
+gulp.task('default', ['icons']);
